@@ -1,0 +1,43 @@
+{% extends "Base.html" %}
+
+{% block Titulo %} Editar tenis {% endblock %}
+
+{% block Contenido %} 
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Historial</h5>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del historial</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Acción</th>
+                        <th>ID del usuario</th>
+                        <th>ID del tenis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dato in Historial %}
+                    <tr>
+                        <td>{{dato.ID}}</td>
+                        <td>{{dato.Fecha}}</td>
+                        <td>{{dato.Accion}}</td>
+                        <td>{{dato.Usuario_ID}}</td>
+                        <td>{{dato.Tenis_ID}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'Inventario' %}" class="btn btn-outline-primary">Volver</a>
+    </div>
+</div>
+
+{% endblock %}

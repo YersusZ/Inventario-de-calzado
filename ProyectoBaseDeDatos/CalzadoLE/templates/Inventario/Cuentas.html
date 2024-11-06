@@ -1,0 +1,44 @@
+{% extends "Base.html" %}
+
+{% block Titulo %} Cuentas {% endblock %}
+
+{% block Contenido %} 
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Cuentas</h5>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de las cuentas</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Administrador</th>
+                        <th>Usuario</th>
+                        <th>Última conexión</th>
+                        <th>Fecha de creación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dato in Usuarios %}
+                    <tr>
+                        <td>{{dato.id}}</td>
+                        <td>{% if dato.is_superuser == 1 %}Sí{% else %}No{% endif %}</td>
+                        <td>{{dato.username}}</td>
+                        <td>{{dato.last_login|date:"d/m/Y H:i:s"}}</td>
+                        <td>{{dato.date_joined|date:"d/m/Y H:i:s"}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'Inventario' %}" class="btn btn-outline-primary">Volver</a>
+        <a href="{% url 'Crear_Cuenta' %}" class="btn btn-outline-success">Crear cuenta</a>
+    </div>
+</div>
+
+{% endblock %}

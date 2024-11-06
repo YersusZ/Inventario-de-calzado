@@ -1,0 +1,22 @@
+el archivo "calzados.sql" es la base de datos del programa.
+fue hecho en python con el framework de Django,
+para ejecutar el programa importar la base de datos en mysql
+luego abrir una terminal en la que se va abrir la carpeta
+"ProyectoBaseDeDatos", luego ejecutar el comando: python manage.py runserver.
+Despues de esto se mostrara una direccion en la cual si undes ctrl y click
+lo llevara al frontend de la base.
+
+Cuentas(con las mayusculas escritas)
+username:Prueba
+password:123
+Esta cuenta tiene superuser
+
+username:Pruebas
+password:1234
+Esta cuenta sin superuser o staff
+
+CAMBIOS REALIZADOS
+Se creo la accion de consultar, la cual previamente no estaba
+los usuarios sin superuser ya no pueden eliminar ni editar, solo pueden
+consultar y crear tenis, ademas de que se le agregaron las tablas
+de tallas de tenis que van desde 36 al 44.

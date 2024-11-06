@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .product-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .product-details img {
+            max-width: 300px;
+            max-height: 300px;
+            margin-right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .product-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .product-info table th,
+        .product-info table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .product-info table th {
+            background-color: #f2f2f2;
+        }
+        
+        /* Estilos para la tabla de cantidades */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        table th,
+        table td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table th {
+            background-color: #f2f2f2;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles del tenis</h1>
+        <div class="product-details">
+            <img src="{{ Tenis.Imagen.url }}" alt="Imagen del tenis">
+            <div class="product-info">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <td>{{ Tenis.ID }}</td>
+                    </tr>
+                    <tr>
+                        <th>Marca</th>
+                        <td>{{ Tenis.Marca }}</td>
+                    </tr>
+                    <tr>
+                        <th>Estilo</th>
+                        <td>{{ Tenis.Estilo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Precio</th>
+                        <td>$ {{ Tenis.Precio_unitario }}</td>
+                    </tr>
+                    <tr>
+                        <th>Color</th>
+                        <td>{{ Tenis.Color }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <h2>Cantidad de tallas disponibles</h2>
+        <table>
+            <tr>
+                <th>Talla 36</th>
+                <th>Talla 37</th>
+                <th>Talla 38</th>
+                <th>Talla 39</th>
+                <th>Talla 40</th>
+                <th>Talla 41</th>
+                <th>Talla 42</th>
+                <th>Talla 43</th>
+                <th>Talla 44</th>
+            </tr>
+            <tr>
+                <td>{{ Tallas.Talla36 }}</td>
+                <td>{{ Tallas.Talla37 }}</td>
+                <td>{{ Tallas.Talla38 }}</td>
+                <td>{{ Tallas.Talla39 }}</td>
+                <td>{{ Tallas.Talla40 }}</td>
+                <td>{{ Tallas.Talla41 }}</td>
+                <td>{{ Tallas.Talla42 }}</td>
+                <td>{{ Tallas.Talla43 }}</td>
+                <td>{{ Tallas.Talla44 }}</td>
+            </tr>
+        </table>
+        <a href="{% url 'Inventario' %}" class="btn">Regresar al inventario</a>
+    </div>
+</body>
+</html>

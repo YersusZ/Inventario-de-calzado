@@ -1,0 +1,58 @@
+{% extends "Base.html" %}
+
+{% block Titulo %} Inventario de tenis {% endblock %}
+
+{% block Contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a href="{% url 'Inventario/Crear' %}" class="btn btn-success">Agregar tenis</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Tenis</h4>
+        <div class="table-container">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" style="width: 100%;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width: 10%;">Imagen</th>
+                            <th style="width: 10%;">ID</th>
+                            <th style="width: 15%;">Marca</th>
+                            <th style="width: 15%;">Estilo</th>
+                            <th style="width: 10%;">Color</th>
+                            <th style="width: 10%;">Cantidad</th>
+                            <th style="width: 15%;">Precio unitario</th>
+                            <th style="width: 15%;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tenis in Tenis %}
+                        <tr>
+                            <td><img src="{{ tenis.Imagen.url }}" height="100"></td>
+                            <td>{{ tenis.ID }}</td>
+                            <td>{{ tenis.Marca }}</td>
+                            <td>{{ tenis.Estilo }}</td>
+                            <td>{{ tenis.Color }}</td>
+                            {% if tenis.Cantidad <= 5 %}
+                            <td style="background-color: #EF5350; color: white;">{{ tenis.Cantidad }}</td>
+                            {% else %}
+                            <td>{{ tenis.Cantidad }}</td>
+                            {% endif %}
+                            <td>{{ tenis.Precio_unitario }}</td>
+                            <td>
+                                {% if user.is_superuser %}
+                                <a href="{% url 'Inventario/Editar' tenis.ID %}" class="btn btn-info">Editar</a>
+                                <a href="{% url 'Eliminar' tenis.ID %}" class="btn btn-danger">Borrar</a>
+                                {% endif %}
+                                <a href="{% url 'Inventario/Consultar' tenis.ID %}" class="btn btn-primary">Consulta</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

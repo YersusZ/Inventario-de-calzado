@@ -1,0 +1,19 @@
+{% extends "Base.html" %}
+
+{% block Titulo %} Agregar nuevo zapato {% endblock %}
+
+{% block Contenido %} 
+
+<div class="card">
+    <div class="card-header">Crear un tenni</div>
+    <div class="card-body">
+        {% if error %}
+            <div style="color: red;">{{ error }}</div>
+        {% endif %}
+        <h4 class="card-title">Datos del tenis</h4>
+        {% include 'Inventario/form.html' %}
+    </div>
+</div>
+
+
+{% endblock %}
